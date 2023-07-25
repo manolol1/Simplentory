@@ -16,7 +16,7 @@ table, th, td {
 }
 
 button {
-    background-color: rgb(191, 191, 191);
+    background-color: rgb(231, 231, 231);
     border: 2px solid;
     border-radius: 3px;
     text-align: center;
@@ -25,13 +25,13 @@ button {
 }
 
 input {
-    background-color: rgb(191, 191, 191);
+    background-color: rgb(231, 231, 231);
     border: 2px solid;
     font-size: larger;
 }
 
 select {
-    background-color: rgb(191, 191, 191);
+    background-color: rgb(231, 231, 231);
     border: 2px solid;
     font-size: larger;
 }
@@ -46,7 +46,7 @@ select {
 
 .modal {
     display: none;
-    background-color: rgb(169, 169, 169);
+    background-color: rgb(210, 210, 210);
     margin: 40px auto;
     padding: 10px;
     border: 2px solid;
