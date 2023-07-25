@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= customName %> Settings</title>
+  <link rel="stylesheet" href="<%= theme %>.css"> 
+</head>
+<body>
+<button onclick="window.location.href='/'">Back to Home</button>
+  <div class="center">
+    <h1 style="margin-top: 0px;">Settings</h1>
+
+    <h2 style="margin-bottom: 10px;">Manage categories</h2>
+    <form action="/addCategory" method="post">
+      <label for="categoryName">Category Name:</label>
+      <input type="text" id="categoryName" name="categoryName" required style="margin-bottom: 8px;">
+      <button type="submit">Add Category</button>
+    </form>
+
+    <table class="center" style="margin-top: 12px;">
+      <tr>
+        <th style="min-width: 190px;">Category Name</th>
+        <th style="min-width: 120px;">Actions</th>
+      </tr>
+      <% categories.forEach((category) => { %>
+        <tr>
+          <td><%= category.name %></td>
+          <td>
+            <form action="/deleteCategory" method="post" style="display: inline;">
+              <input type="hidden" name="categoryId" value="<%= category.id %>">
+              <button type="submit" style="width: 120px;">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+
+    <h2 style="margin-top: 50px; margin-bottom: 10px;">Custom Name</h2>
+    <form action="/saveCustomName" method="post">
+      <label for="customName">Custom Name:</label>
+      <input type="text" id="customName" name="customName" value="<%= customName %>" required>
+      <button type="submit">Save</button>
+    </form>
+
+    <h2 style="margin-top: 50px; margin-bottom: 10px;">Theme</h2>
+    <form action="/saveTheme" method="post">
+      <select name="theme">
+        <option value="simplentory_green" <% if (theme === 'simplentory_green') { %>selected<% } %>>Green</option>
+        <option value="simplentory_dark" <% if (theme === 'simplentory_dark') { %>selected<% } %>>Dark</option>
+        <option value="simplentory_light" <% if (theme === 'simplentory_light') { %>selected<% } %>>Light</option>
+      </select>
+      <button type="submit">Save</button>
+    </form>
+    </div>
+</body>
+</html>

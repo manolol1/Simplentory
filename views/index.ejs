@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= customName %></title>
+  <link rel="stylesheet" href="<%= theme %>.css"> 
+</head>
+<body>
+  <div class="center">
+    <h1><%= customName %></h1>
+
+    <% categories.forEach((category) => { %>
+      <h2 style="margin-bottom: 4px;"><%= category.name %></h2>
+      <table class="center">
+        <tr>
+          <th style="min-width: 150px">Product</th>
+          <th style="min-width: 130px">Quantity</th>
+          <th style="min-width: 100px">Options</th>
+          <th style="min-width: 100px">Set Value</th>
+        </tr>
+        <% products.forEach((product) => { %>
+          <% if (product.categoryId === category.id) { %>
+            <tr>
+              <td><%= product.name %></td>
+              <td><%= product.stock %></td>
+              <td>
+                <div class="option-container">
+                  <form action="/increaseQuantity" method="post">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    <button type="submit" style="width: 40px;">+</button>
+                  </form>
+                  <form action="/decreaseQuantity" method="post">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    <button type="submit" style="width: 40px;">-</button>
+                  </form>
+                  <form action="/deleteProduct" method="post">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    <button type="submit">Delete</button>
+                  </form>
+                </div>
+              </td>
+              <td>
+                <form action="/editQuantity" method="post">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    <input type="number" name="newQuantity" value="<%= product.stock %>" style="width: 100px; text-align: center;">
+                    <button type="submit">Enter</button>
+                  </form>
+              </td>
+            </tr>
+          <% } %>
+        <% }) %>
+      </table>
+      <button onclick="showAddProductModal('<%= category.name %>'); document.getElementById('cancelAddProductButton').style.display = 'block'" style="margin-top: 8px;">Add Product</button>
+      
+
+      <div id="addProductModal<%= category.name %>" class="modal" style="margin-top: 6px;">
+        <div class="modal-content">
+          <form action="/addProduct" method="post">
+            <input type="hidden" name="categoryId" value="<%= category.id %>">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required style="width: 80%; margin-bottom: 10px;">
+            <br>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="0" required style="width: 80%; min-width: 190px;">
+            <br>
+            <button type="submit" style="margin-top: 6px;">Add</button>
+          </form>
+          <button onclick="hideAddProductModal('<%= category.name %>')" style="margin-top: 14px; margin-bottom: 0px;">Close</button>
+        </div>
+      </div>
+    <% }) %>
+    <br>
+    <button onclick="window.location.href='/settings'" style="margin-top: 50px;">Configure</button>
+  </div>
+
+  <script>
+    function showAddProductModal(categoryName) {
+      const modal = document.getElementById(`addProductModal${categoryName}`);
+      modal.style.display = "block";
+    }
+
+    function hideAddProductModal(categoryName) {
+      const modal = document.getElementById(`addProductModal${categoryName}`);
+      modal.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
