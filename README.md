@@ -26,7 +26,7 @@ When you stop the server, just run ```node index.js``` to start it again.
 
 ## Manual
 Simplentory should be relatively self-explaining.
-When you fist set up your Simplentory instance, there should already be a General category with an example product.
+When you first set up your Simplentory instance, there should already be a General category with an example product.
 You can use the + and - buttons to increase/lower the quantity by one. If you want to set your quantity to a specific value, just enter the value in the input field under "Set Value" and press enter.
 
 If you want to create your own categories, click the "Configure" button. You will be redirected to the Settings page.
