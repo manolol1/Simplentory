@@ -9,6 +9,9 @@ This is one of my first projects I ever made, so expect some bugs and poor code.
 + Set a custom name for your Simplentory instance
 + Select a Theme (Green, Dark, Light)
 
+[Click here to open a Simplentory Demo instance!](https://simplentory-demo.onrender.com/) Please note that it might take a while to load this instance.
+The database will be reset every few minutes. You can freely explore Simplentory on this site.
+
 ![Screenshot from the Home page of Simplentory](https://github.com/manolol1/Simplentory/blob/main/simplentory.png)
 
 ## How to Install
