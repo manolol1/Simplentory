@@ -23,18 +23,3 @@ The database will be reset every few minutes. You can freely explore Simplentory
 6. Enter the IP of the computer Simplentory is running on. Your Simplentory instance should be up and running!
 
 When you stop the server, just run ```node index.js``` to start it again.
-
-## Manual
-Simplentory should be relatively self-explaining.
-When you first set up your Simplentory instance, there should already be a General category with an example product.
-You can use the + and - buttons to increase/lower the quantity by one. If you want to set your quantity to a specific value, just enter the value in the input field under "Set Value" and press enter.
-
-If you want to create your own categories, click the "Configure" button. You will be redirected to the Settings page.
-On the Settings page und "Manage categories", just enter a Name for your category in the input field and press "Add Category".
-To delete a category, press the Delete button next to the category you want to delete in the table below.
-When you delete a category, every product in that category will be deleted as well!
-
-You can also set a custom name for your Simplentory instance. This name will be shown in the title of every page and as the headline of the home page.
-To set your name, just edit the name in the input field under "Custom Name" and press "Save".
-
-To change your theme, open the drop-down-menu under "Theme", select one and press "Save".
