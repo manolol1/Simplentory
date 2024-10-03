@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/manolol1/Simplentory#readme",
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "sqlite3": "^5.1.6"
   }
 }
